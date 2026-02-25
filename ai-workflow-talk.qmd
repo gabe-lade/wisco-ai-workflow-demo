@@ -1,0 +1,297 @@
+---
+title: "Incorporating AI into your Workflow"
+subtitle: "A Practical Guide for Economists"
+author: "Gabriel Lade"
+institute: "The Ohio State University"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    preview-links: auto
+    code-fold: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    width: 1280
+    height: 720
+execute:
+  echo: true
+  eval: false
+---
+
+## Two observations and a question
+
+::: {.incremental}
+1. AI has made it **virtually costless** to write grammatically correct prose with no spelling errors.
+
+2. AI has given everyone a **(near) Ph.D.-level** coding assistant and data analyst.
+:::
+
+. . .
+
+<br><br>
+
+::: {.larger-text}
+*What is the equilibrium response for economics job market candidates?*
+:::
+
+## A few thoughts
+
+- The average quality (and expectations) of a JMP will be **higher every year**
+- Expectations for **more complex analyses** will increase
+- Bad writing will likely become a **very bad signal**
+- Boring/generic writing will signal **overreliance on AI**
+- **Interpersonal skills** will become more critical
+
+. . .
+
+**Today's focus:** Building an AI-augmented research infrastructure
+
+## Finding the Balance {.smaller}
+
+**1. Learn the fundamentals** — You can't evaluate code you don't understand. AI will confidently give you wrong answers—you need to catch them. Think of AI as a fast RA who occasionally hallucinates.
+
+**2. But don't fall behind** — Your peers *are* using these tools. The productivity gap compounds quickly. "I prefer the old way" is not a competitive strategy.
+
+**3. The old system was imperfect** — Research errors happened before AI—and were caught late or not at all. Better workflows + AI review can catch errors earlier.
+
+. . .
+
+The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
+
+## The old system wasn't a gold standard {.smaller}
+
+**Case 1: Reinhart & Rogoff (2010)** — An Excel formula didn't include 5 rows of data. Paper claimed high debt causes -0.1% growth; corrected: +2.2% growth. Used to justify global austerity. Found by a grad student, 3 years later.
+
+**Case 2: Deschênes & Greenstone (2007 AER)** — Coding errors and missing weather data in climate-agriculture analysis. Paper claimed climate change would *increase* ag profits; corrected results showed the opposite. Found 5 years later via replication.
+
+---
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+[Part II]{.subtitle-text}
+
+[Building Your Stack]{.title-text}
+:::
+
+## 1. Use a cloud platform + clear folder structure
+
+Work from **OneDrive, Dropbox, or Google Drive**—not your local machine alone. A consistent folder structure makes AI tools more effective because they can understand your project organization. This also enables collaboration and automatic backup simultaneously.
+
+```
+project-folder/
+├── data/
+│   ├── raw/
+│   └── clean/
+├── code/
+│   ├── 01-clean.R
+│   ├── 02-analysis.R
+│   └── 03-figures.R
+├── output/
+├── paper/
+└── README.md
+```
+
+## 2. Use Git/GitHub for version control
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Why Git?
+
+- Track every change to your code
+- Revert to any previous version
+- See exactly what changed and when
+- Collaborate without overwriting
+:::
+
+::: {.column width="50%"}
+### Why GitHub?
+
+- Cloud backup of your code history
+- Share and collaborate easily
+- AI tools integrate directly with repos
+- Replication packages ready to share
+:::
+
+::::
+
+. . .
+
+```{.bash}
+git diff analysis.R
+```
+```{.diff}
+- model <- lm(y ~ x1 + x2, data = df)
++ model <- lm(y ~ x1 + x2 + x1:x2, data = df)  # added interaction
+```
+
+::: {.center-text}
+No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
+:::
+
+## 3. Use AI coding tools: Claude Code vs. Cursor {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Claude Code
+
+**What:** Terminal-based, agentic coding assistant
+
+**Best for:** R and data analysis workflows, file operations & project setup, autonomous multi-step tasks, Git integration
+
+*Runs from command line, can execute code and modify files directly.*
+:::
+
+::: {.column width="50%"}
+### Cursor
+
+**What:** AI-powered code editor (VS Code fork)
+
+**Best for:** Iterative code editing, larger software projects, inline suggestions while typing, tab completion on steroids
+
+*Full IDE experience with AI built in.*
+:::
+
+::::
+
+## 4. Leveling Up: Structured Workflows
+
+Basic Claude Code is powerful, but can be unpredictable.
+
+**Structured workflows add:**
+
+- **CLAUDE.md** — Project config Claude reads every session
+- **Plan-first approach** — Review the approach before implementation
+- **Quality gates** — Standards enforced before committing
+
+. . .
+
+<br>
+
+*Based on workflows from researchers at Cornell ([Rudik](https://github.com/irudik/claude-code-my-workflow)) and Emory ([Sant'Anna](https://github.com/pedrohcgs/claude-code-my-workflow))*
+
+## The .claude/ Folder Structure
+
+```
+my-project/
+├── CLAUDE.md                    # Project "constitution"
+├── .claude/
+│   └── rules/
+│       ├── r-code-conventions.md    # R coding standards
+│       ├── quality-gates.md         # 80/90/95 scoring
+│       └── plan-first-workflow.md   # Plan → Approve → Implement
+├── code/
+├── data/
+│   ├── raw/
+│   └── clean/
+└── output/
+```
+
+**CLAUDE.md** is read at the start of every session — Claude knows your conventions automatically.
+
+## The Plan-First Workflow
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**The pattern:**
+
+1. **Describe** — What you want
+2. **Claude plans** — Proposes approach
+3. **You review** — Approve or refine
+4. **Claude implements** — Works autonomously
+5. **Verify & commit** — Quality checked
+:::
+
+::: {.column width="50%"}
+**Why it works:**
+
+- Catches wrong approaches *before* 500 lines of code
+- You stay in control of key decisions
+- Claude works autonomously on approved plans
+:::
+
+::::
+
+. . .
+
+<br>
+
+*Think of it like hiring a contractor: discuss the plan, approve it, let them work, review the result.*
+
+## Quality Gates
+
+Every file gets a score (0-100). Scores below threshold block the action:
+
+| Score | Meaning |
+|-------|---------|
+| **80+** | Commit allowed |
+| **90+** | Ready for PR/sharing |
+| **95+** | Publication quality |
+
+. . .
+
+**What gets scored:**
+
+- R scripts: Structure, documentation, reproducibility
+- Figures: Clarity, labeling, consistency
+- Commit messages: Descriptive and meaningful
+
+## 5. Write papers in Overleaf + GitHub
+
+- **Overleaf** = collaborative LaTeX editing in the browser
+- **GitHub sync** = version control for your paper
+- AI tools can help draft, edit, and format LaTeX
+- Figures from code → paper in one pipeline
+
+**The workflow:**
+
+Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
+
+*One integrated system: Code changes automatically flow through to your paper.*
+
+## Cautions & Pitfalls
+
+1. **AI can hallucinate packages and functions** — It will confidently suggest code using libraries that don't exist. Always run and verify.
+
+2. **Don't let AI do your economic thinking** — It's a tool, not a co-author. Identification, intuition, and interpretation are yours.
+
+3. **Always test AI-generated code** — Run it. Check edge cases. Verify results make sense.
+
+4. **Be thoughtful about sensitive data** — Know what data you're sending to AI services. Check your IRB and data use agreements.
+
+5. **Don't skip the planning step** — Review Claude's plan before implementation. Easier to fix a wrong plan than wrong code.
+
+## More Resources
+
+| Resource | Description |
+|----------|-------------|
+| [Kevin Bryan's "Tech Stack"](https://kevinbryanecon.com/techstack.html) | Modern research tools for economists |
+| [Fernández-Villaverde's Git Tutorial](https://www.sas.upenn.edu/~jesusfv/) | Git tutorial for academic research |
+| [Claude Code Docs](https://docs.anthropic.com) | Official Claude Code documentation |
+| [Cursor](https://cursor.com) | AI-first code editor |
+| [Rudik's workflow](https://github.com/irudik/claude-code-my-workflow) | Make + R structured workflow |
+| [Sant'Anna's workflow](https://github.com/pedrohcgs/claude-code-my-workflow) | LaTeX + R + quality gates |
+
+## Questions?
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Gabriel Lade**
+
+C. William Swank Chair in Rural-Urban Policy
+
+Department of Agricultural, Environmental, and Development Economics
+
+The Ohio State University
+:::
+
+::: {.column width="40%"}
+![](https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ohiostatebuckeyes.com/images/2023/7/18/transparent_brutus.png){width="280"}
+:::
+
+::::

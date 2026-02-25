@@ -1,0 +1,179 @@
+/*-- scss:defaults --*/
+
+// Official OSU Colors from https://bux.osu.edu/color/primary-colors/
+$scarlet: #ba0c2f;
+$gray: #a7b1b7;
+$gray-dark-80: #212325;
+$gray-dark-60: #3f4443;
+$gray-dark-40: #646a6e;
+$gray-light-80: #eff1f2;
+$gray-light-60: #dfe3e5;
+
+// Theme colors
+$body-bg: #ffffff;
+$body-color: $gray-dark-80;
+$link-color: $scarlet;
+$selection-bg: $scarlet;
+
+// Fonts
+$font-family-sans-serif: "Source Sans Pro", Arial, sans-serif;
+$presentation-heading-font: "Source Sans Pro", Arial, sans-serif;
+$presentation-heading-color: $gray-dark-80;
+$code-block-font-size: 0.7em;
+
+// Headings
+$presentation-h1-font-size: 1.8em;
+$presentation-h2-font-size: 1.4em;
+$presentation-h3-font-size: 1.1em;
+
+/*-- scss:rules --*/
+
+// Title slide styling with OSU colors
+.reveal .slides section.quarto-title-block {
+  h1.title {
+    color: $scarlet;
+    border-bottom: 4px solid $scarlet;
+    padding-bottom: 0.3em;
+  }
+  
+  .subtitle {
+    color: $gray-dark-60;
+  }
+  
+  .institute {
+    color: $scarlet;
+    font-weight: bold;
+  }
+}
+
+// Section headers (scarlet background slides)
+.center-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  
+  .title-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .subtitle-text {
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5em;
+  }
+}
+
+// Slide titles with underline
+.reveal h2 {
+  border-bottom: 4px solid $scarlet;
+  padding-bottom: 0.2em;
+  display: inline-block;
+}
+
+// Larger text utility class (for the equilibrium question)
+.larger-text {
+  font-size: 1.3em;
+  text-align: center;
+  color: $gray-dark-60;
+}
+
+// Code blocks
+.reveal pre {
+  background-color: $gray-light-80;
+  border-radius: 6px;
+  border: 1px solid $gray;
+}
+
+.reveal pre code {
+  color: $gray-dark-80;
+}
+
+// Tables - readable font
+.reveal table {
+  font-size: 0.85em;
+  
+  th {
+    background-color: $scarlet;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: $gray-light-80;
+  }
+}
+
+// Incremental list styling
+.reveal .slides section .fragment.visible {
+  opacity: 1;
+}
+
+// Column gaps
+.columns {
+  gap: 2em;
+}
+
+// Centered text utility
+.center-text {
+  text-align: center;
+  font-style: italic;
+  color: $gray-dark-40;
+  margin-top: 1em;
+}
+
+// Smaller text for dense slides
+.smaller {
+  font-size: 0.88em;
+}
+
+// Institution footer
+.reveal .slide-number {
+  color: $gray-dark-40;
+  font-size: 0.6em;
+}
+
+// Strong/bold in scarlet for emphasis
+.reveal strong {
+  color: $scarlet;
+}
+
+// Proper bullet styling
+.reveal ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.reveal ul li {
+  padding-left: 0.3em;
+  margin-bottom: 0.4em;
+}
+
+.reveal ul li::marker {
+  color: $scarlet;
+}
+
+// Nested lists
+.reveal ul ul {
+  list-style-type: circle;
+}
+
+// Ordered lists
+.reveal ol {
+  padding-left: 1.5em;
+}
+
+.reveal ol li {
+  padding-left: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+// Questions slide image
+.reveal img {
+  max-height: 400px;
+}
