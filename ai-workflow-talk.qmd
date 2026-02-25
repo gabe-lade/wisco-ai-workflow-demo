@@ -19,6 +19,46 @@ execute:
   eval: false
 ---
 
+
+<!-------------------------------------------------------------->
+<!-------------------------- PART I ---------------------------->
+<!-------------------------------------------------------------->
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+[Part I]{.subtitle-text}
+
+[AI in Your Research]{.title-text}
+:::
+
+
+## Think, Pair, Share 
+
+For the following use cases, discuss whether you think AI is appropriate to use as part of your research:
+
+- Developing research questions/ideas
+- Coding
+- Theoretical modeling and derivations
+- Editing
+- Writing
+- Summarizing (post-publication)
+
+
+
+<!-------------------------------------------------------------->
+<!------------------------- PART II ---------------------------->
+<!-------------------------------------------------------------->
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+[Part II]{.subtitle-text}
+
+[My Thoughts on AI]{.title-text}
+:::
+
+
 ## Two observations and a question
 
 ::: {.incremental}
@@ -47,7 +87,7 @@ execute:
 
 **Today's focus:** Building an AI-augmented research infrastructure
 
-## Finding the Balance {.smaller}
+## Finding the Balance
 
 **1. Learn the fundamentals** — You can't evaluate code you don't understand. AI will confidently give you wrong answers—you need to catch them. Think of AI as a fast RA who occasionally hallucinates.
 
@@ -59,7 +99,7 @@ execute:
 
 The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
 
-## The old system wasn't a gold standard {.smaller}
+## The old system wasn't a gold standard 
 
 **Case 1: Reinhart & Rogoff (2010)** — An Excel formula didn't include 5 rows of data. Paper claimed high debt causes -0.1% growth; corrected: +2.2% growth. Used to justify global austerity. Found by a grad student, 3 years later.
 
@@ -117,7 +157,11 @@ project-folder/
 
 ::::
 
-. . .
+## 2. Use Git/GitHub for version control
+
+No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
+
+<br>
 
 ```{.bash}
 git diff analysis.R
@@ -127,11 +171,12 @@ git diff analysis.R
 + model <- lm(y ~ x1 + x2 + x1:x2, data = df)  # added interaction
 ```
 
-::: {.center-text}
-No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
-:::
+<br>
 
-## 3. Use AI coding tools: Claude Code vs. Cursor {.smaller}
+Confused on how to set up Git and GitHub? Ask AI!
+
+
+## 3. Use AI coding tools: Claude Code vs. Cursor 
 
 :::: {.columns}
 
@@ -192,33 +237,18 @@ my-project/
 
 **CLAUDE.md** is read at the start of every session — Claude knows your conventions automatically.
 
+
 ## The Plan-First Workflow
 
-:::: {.columns}
-
-::: {.column width="50%"}
 **The pattern:**
 
-1. **Describe** — What you want
-2. **Claude plans** — Proposes approach
+1. **Describe** — What you want to accomplish
+2. **Claude plans** — Proposes approach, files, packages
 3. **You review** — Approve or refine
-4. **Claude implements** — Works autonomously
-5. **Verify & commit** — Quality checked
-:::
-
-::: {.column width="50%"}
-**Why it works:**
-
-- Catches wrong approaches *before* 500 lines of code
-- You stay in control of key decisions
-- Claude works autonomously on approved plans
-:::
-
-::::
+4. **Claude implements** — Works autonomously after approval
+5. **Verify & commit** — Quality gates checked before commit
 
 . . .
-
-<br>
 
 *Think of it like hiring a contractor: discuss the plan, approve it, let them work, review the result.*
 
@@ -276,22 +306,7 @@ Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
 | [Rudik's workflow](https://github.com/irudik/claude-code-my-workflow) | Make + R structured workflow |
 | [Sant'Anna's workflow](https://github.com/pedrohcgs/claude-code-my-workflow) | LaTeX + R + quality gates |
 
+
 ## Questions?
 
-:::: {.columns}
-
-::: {.column width="60%"}
-**Gabriel Lade**
-
-C. William Swank Chair in Rural-Urban Policy
-
-Department of Agricultural, Environmental, and Development Economics
-
-The Ohio State University
-:::
-
-::: {.column width="40%"}
-![](https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ohiostatebuckeyes.com/images/2023/7/18/transparent_brutus.png){width="280"}
-:::
-
-::::
+![](https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ohiostatebuckeyes.com/images/2023/7/18/transparent_brutus.png){fig-align="center" width="450"}
