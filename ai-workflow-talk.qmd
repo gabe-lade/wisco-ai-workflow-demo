@@ -6,6 +6,8 @@ institute: "The Ohio State University"
 format:
   revealjs:
     theme: [default, custom.scss]
+    embed-resources: true
+    self-contained: true
     slide-number: true
     preview-links: auto
     code-fold: false
